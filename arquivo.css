@@ -1,0 +1,122 @@
+body, html {	
+ 	
+    font-family: Arial;
+}
+
+#fundo {
+    position: fixed; /* posição fixa para que a possível rolagem da tela não revele espaços em branco */
+    width: 100%;
+    height: 100%;
+}
+
+#fundo img {
+    width: 100%; /* com isso imagem ocupará toda a largura da tela. Se colocarmos height: 100% também, a imagem irá distorcer */
+    position: absolute;
+}
+
+	ul {
+    position: relative;
+    margin: 50px 0 0 50px;
+	}
+	ul li {
+	        float: left;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    margin-right: 124px;
+	}
+	ul li:last-child {
+	    margin: 0;
+	}
+	ul li img:first-child {
+	    float: left;
+	    -webkit-transition: 1s;
+	    -moz-transition: 1s;
+	    -ms-transition: 1s;
+	    -o-transition: 1s;
+	    transition: 1s;
+	    margin-top: 13px;
+	    /* filter: greyscale(1.0); */
+	}
+	ul li:hover img:first-child {
+	    margin: -64px 0 0;
+	    -webkit-transform: rotate(135deg);
+	    -moz-transform: rotate(135deg);
+	    -ms-transform: rotate(135deg);
+	    -o-transform: rotate(135deg);
+	    transform: rotate(135deg);
+	}
+
+
+
+#position{
+
+	
+    height: 15px;
+    position: relative;
+    width: 100px;
+    margin-top: 472px;
+
+}
+
+
+#menu1  ul{
+    width: 95%;
+    background-color: #EDEDED;
+    list-style: none;
+    margin-top: 36px;
+    height: 30px;
+    float: right;
+    position: relative;
+    margin-bottom: -60px;
+
+
+}
+#menu1 ul li{
+	display: inline; 
+}
+
+#formulario{
+	position: absolute;
+    margin-top: -467px;
+    margin-left: 450px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+#band{
+
+	height: 40%;
+    width: 40%;
+    position: absolute;
+    margin-top: -381px;
+    margin-left: 363px;
+
+}
+#nome{
+	position: absolute;
+    margin-top: -113px;
+    margin-left: 600px;
+    list-style: none;
+
+
+}
+#cp{
+	    position: absolute;
+    margin-top: -96px;
+    margin-left: 599px;
+    list-style: none;
+
+}

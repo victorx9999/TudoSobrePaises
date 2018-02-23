@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="arquivo.css">
+	<link charset="utf-8">
+</head>
+
+<body>
+        
+    </div>
+	  <form id="formulario">
+                 <h1>Digite o nome do país</h1>
+				 <div class="form-group">
+					
+				<input type="text" id="campo" class="form-control" id="exampleInputEmail1" placeholder="Pesquisar País">
+				  </div>	  
+				  <button type="submit" class="btn btn-primary btn-lg " id="getPosts">Pesquisar</button>
+
+              </form>
+  
+	<div id="menu1">
+               <ul >
+					<li> População  </li>
+					<li> Moeda      </li>
+					<li> Codigo     </li>
+					<li> Idioma     </li>
+					<li> Continente </li>
+					<li> Territorio </li>
+					<li> Fronteira  </li>
+				</ul>
+	</div>
+
+ 	<div id="position"> </div>
+ 
+	<div id="output"></div>
+
+ 	<script type = "text/javascript">
+
+
+		document.getElementById('getPosts').addEventListener('click', getPosts);
+
+
+		var form = document.getElementById('formulario');
+        var campo = document.getElementById('campo');
+
+        form.addEventListener('submit', function(e) {
+    // alerta o valor do campo
+
+    var url = 'https://restcountries.eu/rest/v2/name/'+campo.value
+             
+    // impede o envio do form
+        e.preventDefault();
+
+        this.reset();
+	});
+
+  function getPosts(){
+  	 var url = 'https://restcountries.eu/rest/v2/name/'+campo.value
+
+  	  console.log(campo.value);
+      console.log(url)
+
+      fetch(url)
+      .then((res) => res.json())
+      .then((data) => {
+        let output = '<h2 class="mb-4"></h2>';
+        data.forEach(function(post){
+         output += `
+            <div class="card card-body mb-3">
+             <img id="band" src='${post.flag}'>
+             <li id="nome">Nome: ${post.name} </li>
+			 <li id="cp"> Capital: ${post.capital}</li>
+              <ul>
+			    <li>
+			        <a href="#">
+			            <img src="img/pessoa.png">
+			            <h5>${post.population} </h5>
+			        </a>
+			    </li>
+			    <li>
+			        <a href="#">
+			        	<img src="img/dinheiro.png">
+			            <h5>${post.currencies[0].name}</h5>
+			            <h5>${post.currencies[0].symbol}</h5> 
+			        </a>
+			    </li>
+			    <li>
+			        <a href="#">
+			            <img src="img/cod.png"> 
+			            <h3>${post.callingCodes}</h3>
+			            
+			        </a>
+			    </li>
+
+			    <li>
+			        <a href="#">
+			            <img src="img/voz.png">
+			            <h5>${post.languages[0].nativeName}</h5>
+			        </a>
+			    </li>
+
+			    <li>
+			        <a href="#">
+			            <img src="img/cont.png">
+			            <h5>${post.subregion} </h5>
+			        </a>
+			    </li>
+
+			    <li>
+			        <a href="#">
+			            <img src="img/map.png">
+			            <h5>${post.area} </h5>
+			        </a>
+			    </li>
+
+			    <li>
+			        <a href="#">
+			            <img src="img/fron.png">
+			            <h5>${post.borders}</h5>
+			        </a>
+			    </li>
+ 			</ul>
+
+		</div>
+
+          `;
+        });
+        document.getElementById('output').innerHTML = output;
+      })
+    }
+		
+</script>	
+</body>
+
+</html>
+
+
+
+
+
+
+
+
